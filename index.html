@@ -22,7 +22,7 @@
             overflow: hidden;
             position: relative;
             color: white;
-            background: #1a1a1a;
+            background: #000;
         }
 
         /* Hintergrund-Slideshow */
@@ -33,6 +33,7 @@
             width: 100%;
             height: 100%;
             z-index: -2;
+            background: #000;
         }
 
         .slide {
@@ -42,15 +43,22 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            background-position: center;
+            background-position: center center;
+            background-repeat: no-repeat;
             opacity: 0;
-            transition: opacity 3s ease-in-out, transform 10s ease-out;
-            transform: scale(1.1);
+            transition: opacity 3s ease-in-out;
         }
 
         .slide.active {
             opacity: 1;
-            transform: scale(1);
+        }
+
+        /* FIX FÜR IPHONE: Auf kleinen Bildschirmen gesamtes Bild zeigen */
+        @media (max-width: 768px) {
+            .slide {
+                background-size: contain; /* Zeigt das ganze Bild, nicht beschnitten */
+                background-color: #000;   /* Schwarze Balken an den Seiten */
+            }
         }
 
         /* Dunkles Overlay */
@@ -60,7 +68,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%);
             z-index: -1;
         }
 
@@ -72,14 +80,13 @@
             z-index: 1;
             text-align: left;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(5px);
             padding: 15px 20px;
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Überschrift "Glücklich Verheiratet" - klein */
         h1 {
             font-family: 'Tangerine', cursive;
             font-size: 2.5rem;
@@ -89,7 +96,6 @@
             line-height: 1;
         }
 
-        /* Der Text "seit" */
         .since-text {
             font-family: 'Playfair Display', serif;
             font-size: 0.9rem;
@@ -99,7 +105,6 @@
             display: inline;
         }
 
-        /* Die Minuten-Zahl - klein */
         .minutes-container {
             display: inline-flex;
             align-items: baseline;
@@ -122,7 +127,6 @@
             opacity: 0.9;
         }
 
-        /* Hochzeitsdatum noch kleiner darunter */
         .wedding-info {
             margin-top: 8px;
             font-size: 0.75rem;
@@ -130,7 +134,6 @@
             font-style: italic;
         }
 
-        /* Mobile Anpassung - noch kleiner auf dem Handy */
         @media (max-width: 768px) {
             .content {
                 bottom: 20px;
@@ -146,7 +149,7 @@
 </head>
 <body>
 
-    <!-- Hintergrund-Slideshow mit ALLEN deinen Bildern -->
+    <!-- Hintergrund-Slideshow - ALLE BILDER OHNE DOPPELTE (nur JPEG) -->
     <div class="slideshow-container" id="slideshow">
         <div class="slide active" style="background-image: url('IMG_1185.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1189.jpeg')"></div>
@@ -158,14 +161,12 @@
         <div class="slide" style="background-image: url('IMG_1222.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1225.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1228.jpeg')"></div>
-        <div class="slide" style="background-image: url('IMG_1228.png')"></div>
         <div class="slide" style="background-image: url('IMG_1232.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1239.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1277.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1283.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1285.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1292.jpeg')"></div>
-        <div class="slide" style="background-image: url('IMG_1292.png')"></div>
         <div class="slide" style="background-image: url('IMG_1300.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1302.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1303.jpeg')"></div>
@@ -199,17 +200,13 @@
         <div class="slide" style="background-image: url('IMG_1542.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1545.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1551.jpeg')"></div>
-        <div class="slide" style="background-image: url('IMG_1551.png')"></div>
         <div class="slide" style="background-image: url('IMG_1552.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1556.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1567.jpeg')"></div>
-        <div class="slide" style="background-image: url('IMG_1567.png')"></div>
         <div class="slide" style="background-image: url('IMG_1579.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1580.jpeg')"></div>
-        <div class="slide" style="background-image: url('IMG_1580.png')"></div>
         <div class="slide" style="background-image: url('IMG_1589.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1592.jpeg')"></div>
-        <div class="slide" style="background-image: url('IMG_1592.png')"></div>
         <div class="slide" style="background-image: url('IMG_1596.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1601.jpeg')"></div>
         <div class="slide" style="background-image: url('IMG_1602.jpeg')"></div>
@@ -231,14 +228,12 @@
     </div>
 
     <script>
-        // Hochzeitsdatum: 07.03.2026, 14:13 Uhr
         const WEDDING_DATE = new Date(2026, 2, 7, 14, 13, 0);
         
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
-        const SLIDE_DURATION = 8000; // 8 Sekunden pro Bild
+        const SLIDE_DURATION = 8000;
 
-        // Berechne die vergangenen Minuten
         function updateMinutes() {
             const now = new Date();
             const difference = now - WEDDING_DATE;
@@ -246,18 +241,16 @@
             document.getElementById('minutes').textContent = minutes.toLocaleString('de-DE');
         }
 
-        // Slideshow
         function nextSlide() {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }
 
-        // Starte
         window.addEventListener('load', () => {
             updateMinutes();
-            setInterval(updateMinutes, 60000); // Jede Minute aktualisieren
-            setInterval(nextSlide, SLIDE_DURATION); // Alle 8 Sekunden Bild wechseln
+            setInterval(updateMinutes, 60000);
+            setInterval(nextSlide, SLIDE_DURATION);
         });
     </script>
 
