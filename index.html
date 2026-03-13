@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glücklich Verheiratet</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            color: white;
+            background: #1a1a1a;
+        }
+
+        /* Hintergrund-Slideshow */
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 3s ease-in-out, transform 10s ease-out;
+            transform: scale(1.1);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Dunkles Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+            z-index: -1;
+        }
+
+        /* Text-Container unten links */
+        .content {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1;
+            text-align: left;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Überschrift "Glücklich Verheiratet" - klein */
+        h1 {
+            font-family: 'Tangerine', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        /* Der Text "seit" */
+        .since-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 5px;
+            opacity: 0.9;
+            display: inline;
+        }
+
+        /* Die Minuten-Zahl - klein */
+        .minutes-container {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .minutes-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+        }
+
+        .minutes-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        /* Hochzeitsdatum noch kleiner darunter */
+        .wedding-info {
+            margin-top: 8px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        /* Mobile Anpassung - noch kleiner auf dem Handy */
+        @media (max-width: 768px) {
+            .content {
+                bottom: 20px;
+                left: 20px;
+                padding: 10px 15px;
+            }
+            h1 { font-size: 2rem; }
+            .minutes-number { font-size: 1.5rem; }
+            .since-text, .minutes-label { font-size: 0.8rem; }
+            .wedding-info { font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hintergrund-Slideshow mit ALLEN deinen Bildern -->
+    <div class="slideshow-container" id="slideshow">
+        <div class="slide active" style="background-image: url('IMG_1185.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1189.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1201.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1207.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1210.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1212.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1220.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1222.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1225.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1228.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1228.png')"></div>
+        <div class="slide" style="background-image: url('IMG_1232.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1239.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1277.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1283.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1285.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1292.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1292.png')"></div>
+        <div class="slide" style="background-image: url('IMG_1300.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1302.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1303.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1305.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1307.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1312.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1319.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1320.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1322.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1331.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1347.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1371.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1375.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1379.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1390.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1402.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1421.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1433.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1435.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1449.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1450.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1452.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1462.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1466.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1493.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1501.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1505.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1507.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1511.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1514.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1542.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1545.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1551.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1551.png')"></div>
+        <div class="slide" style="background-image: url('IMG_1552.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1556.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1567.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1567.png')"></div>
+        <div class="slide" style="background-image: url('IMG_1579.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1580.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1580.png')"></div>
+        <div class="slide" style="background-image: url('IMG_1589.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1592.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1592.png')"></div>
+        <div class="slide" style="background-image: url('IMG_1596.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1601.jpeg')"></div>
+        <div class="slide" style="background-image: url('IMG_1602.jpeg')"></div>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <!-- Text klein in der Ecke unten links -->
+    <div class="content">
+        <h1>Glücklich Verheiratet</h1>
+        <div>
+            <span class="since-text">seit</span>
+            <div class="minutes-container">
+                <span class="minutes-number" id="minutes">0</span>
+                <span class="minutes-label">Minuten</span>
+            </div>
+        </div>
+        <div class="wedding-info">07. März 2026, 14:13 Uhr</div>
+    </div>
+
+    <script>
+        // Hochzeitsdatum: 07.03.2026, 14:13 Uhr
+        const WEDDING_DATE = new Date(2026, 2, 7, 14, 13, 0);
+        
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const SLIDE_DURATION = 8000; // 8 Sekunden pro Bild
+
+        // Berechne die vergangenen Minuten
+        function updateMinutes() {
+            const now = new Date();
+            const difference = now - WEDDING_DATE;
+            const minutes = Math.floor(difference / (1000 * 60));
+            document.getElementById('minutes').textContent = minutes.toLocaleString('de-DE');
+        }
+
+        // Slideshow
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Starte
+        window.addEventListener('load', () => {
+            updateMinutes();
+            setInterval(updateMinutes, 60000); // Jede Minute aktualisieren
+            setInterval(nextSlide, SLIDE_DURATION); // Alle 8 Sekunden Bild wechseln
+        });
+    </script>
+
+</body>
+</html>
